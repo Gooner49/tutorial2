@@ -45,6 +45,7 @@ class TodoApp extends Component
           <Route path= '/Welcome'  element = {<Welcome />} />
           <Route path= '/Contact'  element = {<Login/>} />
           <Route path= '/Login'  element = {<Login  />}   />
+          <Route path= '/view'  element = {<Login  />}   />
          </Routes>
         </main> 
     </div>
