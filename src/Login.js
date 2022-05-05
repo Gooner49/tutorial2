@@ -16,12 +16,12 @@ const Login = () =>
     { 
       var incr = user.password;
       var incr1 = user.username;
-      if (incr1 === "Abacus2022" ) {
-        console.log('  y ')
-        navigate("/Welcome")
-      } else {
-        console.log(' value is n ')
-      }
+      //if (incr1 === "Abacus2022" ) {
+      //  console.log('  y ')
+        navigate("/viewAll")
+      //} else {
+      //  console.log(' value is n ')
+      //}
      // console.log('Password value is  '  +incr)
      // console.log('User value is  '  +incr1)
       let path = `Welcome`; 

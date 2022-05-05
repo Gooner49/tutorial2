@@ -1,55 +1,40 @@
-import React , {Component} from 'react';
+import React , {Component, useState} from 'react';
 import axios from "axios";
 import './Counter.css';
 import SubCounter from './SubCounter';
-class DataDisplay extends Component {
-
-  render  () 
-  {
-    const originalArr = [
-                            {vendor: 2001, bananas: 50, apples:75, oranges: 12},
-                            {vendor: 2002, bananas: 25, apples:60, oranges: 82},
-                            {vendor: 2003, bananas: 36, apples:41, oranges: 73},
-                            {vendor: 2004, bananas: 59, apples:62, oranges: 87}
-                        ];
-
-    console.log('Hello from counter render');
+const DataDisplay = () => 
+{
+    
+    const baseURL = "http://localhost:8080/viewlist";
+    const [post, setPost] = useState([]);
+    console.log('Hello from Data display');
+    React.useEffect(() => {
+      axios.get(baseURL).then((response) => {
+     
+        let c = response.data;
+        c.forEach(element => {
+             console.log ("now traversing with array ID " +element.cId);
+        });       
+         //   console.log(  response.data.cId);
+        // console.log( "Now logging state values");
+        // console.log( post);
+        //console.log( post.title);
+      });
+    }, []);
+  
+    if (!post) return null;
+  
     return (
       <div>
-        <h1 class = "header">
-            Welcome to To Do List 
-        </h1>   
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>vendor</th>
-                  <th>bananas</th>
-                  <th>Country</th>
-                  <th>oranges</th>
-                </tr>
-              </thead>
-              <tbody> 
-                {
-                  originalArr.map
-                  (
-                              a =>  
-                              <tr>
-                                <td>{a.vendor}</td>
-                                <td>{a.bananas}</td>
-                                <td>{a.apples}</td>
-                                <td>{a.oranges}</td>
-                              </tr>
-                  )
-                }  
-             </tbody>  
-            </table>
-          </div>
-      </div>    
-      );
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
+      </div>
+    );
+    console.log('Hello from Data display');
+    
   }
   
 
-}
+
 
 export default DataDisplay;
