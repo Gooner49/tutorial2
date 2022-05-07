@@ -6,18 +6,28 @@ const DataDisplay = () =>
 {
     
     const baseURL = "http://localhost:8080/viewlist";
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState({listv : [] });
     console.log('Hello from Data display');
     React.useEffect(() => {
       axios.get(baseURL).then((response) => {
      
         let c = response.data;
-        c.forEach(element => {
+        let v = [];
+        c.forEach(element =>
+           {
              console.log ("now traversing with array ID " +element.cId);
-        });       
-         //   console.log(  response.data.cId);
-        // console.log( "Now logging state values");
-        // console.log( post);
+             v.push (element.cId)
+             console.log (v);
+           });  
+           console.log (v);      
+     
+        
+         setPost({...post , listv : [...v] });
+        // setUser({...user, [e.target.name]: e.target.value });
+        console.log( "Now logging state values");
+        console.log( post);
+
+        console.log( "Finished logging state values");
         //console.log( post.title);
       });
     }, []);
@@ -26,11 +36,32 @@ const DataDisplay = () =>
   
     return (
       <div>
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
+        <h1>Hello rendering from data display</h1>
+        <p>finished rendering from data display</p>
+        <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  
+                </tr>
+              </thead>
+              <tbody> 
+                {
+                  post.listv.map
+                  (
+                              a =>  
+                              <tr>
+                                <td>{a}</td>
+                              </tr>
+                  )
+                }  
+             </tbody>  
+            </table>
+          </div>
       </div>
     );
-    console.log('Hello from Data display');
+   // console.log('Hello from Data display');
     
   }
   
