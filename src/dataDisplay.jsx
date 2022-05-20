@@ -20,8 +20,7 @@ const DataDisplay = () =>
              console.log (v);
            });  
            console.log (v);      
-     
-        
+
          setPost({...post , listv : [...v] });
         // setUser({...user, [e.target.name]: e.target.value });
         console.log( "Now logging state values");
@@ -65,7 +64,4 @@ const DataDisplay = () =>
     
   }
   
-
-
-
 export default DataDisplay;

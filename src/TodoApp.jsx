@@ -15,6 +15,17 @@ import {
 } from './NavbarElements';
 class TodoApp extends Component 
 {
+
+  constructor (props)
+  { 
+    super(props);
+    this.state = 
+    {
+      auth : false
+    }
+    //this.cIncrement = this.cIncrement.bind(this);
+
+  }
    //const history = useHistory;
   render ()
   {
@@ -46,7 +57,7 @@ class TodoApp extends Component
           <Route path= '/Welcome'  element = {<Welcome />} />
           <Route path= '/Contact'  element = {<Login/>} />
           <Route path= '/Login' element = {<Login  />}   />
-          <Route path= '/viewAll'  element = {<DataDisplay />}   />
+          <Route path= '/viewAll'  element = {<DataDisplay  />}   />
          </Routes>
         </main> 
     </div>
@@ -60,6 +71,14 @@ class TodoApp extends Component
      //this.state.counter ++ ;
      
   }  
+   RequireAuth = () => 
+  {
+    //var auth = sessionStorage.getItem('authFlag');;
+    console.log('Validating authentication'  );
+   // return auth === true ? children : <Navigate to="/Login" replace />;
+
+  }
+  
 }
 
 export default TodoApp;
