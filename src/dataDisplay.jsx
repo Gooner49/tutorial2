@@ -5,7 +5,7 @@ import SubCounter from './SubCounter';
 const DataDisplay = () => 
 {
     
-    const baseURL = "http://localhost:8080/viewlist";
+    const baseURL = "http://localhost:8080/viewmodel";
     const [post, setPost] = useState({listv : [] });
     console.log('Hello from Data display');
     React.useEffect(() => {
@@ -15,8 +15,8 @@ const DataDisplay = () =>
         let v = [];
         c.forEach(element =>
            {
-             console.log ("now traversing with array ID " +element.cId);
-             v.push (element.cId)
+             console.log ("now traversing with array ID " +element.title);
+             v.push (element)
              console.log (v);
            });  
            console.log (v);      
@@ -32,7 +32,7 @@ const DataDisplay = () =>
     }, []);
   
     if (!post) return null;
-  
+//    post.listv.map (b =>  console.log(" dd " +b.title));
     return (
       <div>
         <h1>Hello rendering from data display</h1>
@@ -41,9 +41,11 @@ const DataDisplay = () =>
             <table>
               <thead>
                 <tr>
-                  <th>Id</th>
+                  <th>title</th>
+                  <th>Description</th>
+                  <th>Location</th>
                   
-                </tr>
+               </tr>
               </thead>
               <tbody> 
                 {
@@ -51,7 +53,9 @@ const DataDisplay = () =>
                   (
                               a =>  
                               <tr>
-                                <td>{a}</td>
+                                <td>{a.title}</td>
+                                <td>{a.description}</td>
+                                <td>{a.location}</td>
                               </tr>
                   )
                 }  
