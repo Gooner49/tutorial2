@@ -14,6 +14,18 @@ z-index: 12;
 /* justify-content: flex-start; */
 `;
 
+export const Nav1 = styled.nav`
+background: #DBE672;
+background-image: url('image.imgs.full.high.jpg');
+height: 185px;
+display: flex;
+justify-content: space-between;
+padding: 0.2rem calc((100vw - 1000px) / 2);
+z-index: 12;
+/* Third Nav */
+/* justify-content: flex-start; */
+`;
+
 export const NavLink = styled(Link)`
 color: #808080;
 display: flex;

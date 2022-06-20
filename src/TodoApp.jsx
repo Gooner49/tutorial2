@@ -4,6 +4,8 @@ import SubCounter from './SubCounter';
 import Login from './Login';
 import Welcome from './Welcome';
 import DataDisplay from './dataDisplay';
+import AddItem from './addItem';
+import ViewItem from './viewItem';
 import { BrowserRouter as Router , Route,Routes,  useNavigate , Link } from 'react-router-dom';
 import {
   Nav,
@@ -55,6 +57,8 @@ class TodoApp extends Component
          <Routes>
           <Route path= '/'  element = {<Login/>} />
           <Route path= '/Welcome'  element = {<Welcome />} />
+          <Route path= '/viewAll/addItem'  element = {<AddItem/>} />
+          <Route path= '/viewAll/viewItem'  element = {<ViewItem/>}   />
           <Route path= '/Contact'  element = {<Login/>} />
           <Route path= '/Login' element = {<Login  />}   />
           <Route path= '/viewAll'  element = {<DataDisplay  />}   />
