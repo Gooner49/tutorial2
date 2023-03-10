@@ -65,8 +65,6 @@ class Counter extends Component {
        counter : this.state.counter + val
      });
   }
-  
-
 }
 
 export default Counter;

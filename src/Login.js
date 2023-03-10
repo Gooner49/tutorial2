@@ -1,6 +1,7 @@
 import React , {Component, useState} from 'react';
 import './Counter.css'
 import SubCounter from './SubCounter';
+import axios from "axios";
 import Welcome from './Welcome';
 import withRouter from './withRouter';
 //import { BrowserRouter as Router , Route,Routes,  Link ,useNavigate , Navigate} from 'react-router-dom';
@@ -15,9 +16,9 @@ const Login = () =>
   let navigate = useNavigate(); 
     const routeChange = () =>
     { 
-      var incr = user.password;
-      var incr1 = user.username;
-      if (incr1 === "Abacus2022" ) 
+      var incr1 = user.password;
+      var passwrd = user.username;
+     if (incr1 === "Abacus2022" ) 
       {
        console.log('  y ')
       sessionStorage.setItem('authFlag', true );
@@ -27,8 +28,13 @@ const Login = () =>
       console.log(' value is n ')
       }
      // console.log('Password value is  '  +incr)
-     // console.log('User value is  '  +incr1)
+     /* console.log('User value is  '  +incr1)
       let path = `Welcome`; 
+      const authURL = "http://localhost:8080/authenticate"; 
+      axios.post(authURL,{usernm,passwrd}).then((response) => {
+        let c = response.data;
+        console.log(c)
+      });  */
     }
 
     const handleChangecred = (e) =>
