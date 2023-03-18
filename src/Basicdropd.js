@@ -1,10 +1,12 @@
 import React , {Component, useState} from 'react';
+import axios from "axios";
 import './Counter.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 const Basicdropd = () =>
 {
   const [user, setUser] = useState({country: 'kras' });
+  const [post, setPost] = useState({listv : [] });
   let fruits = [
         {label: "France" , value : "FR"},
         {label: "Portugal" , value : "PT"},
@@ -12,6 +14,32 @@ const Basicdropd = () =>
         {label : "Italy" , value : "IT"},
         {label : "Spain" , value : "ES"}
       ];
+      const baseURL = "http://localhost:8080/viewDept";
+      //const [post, setPost] = useState({listv : [] });
+      console.log('Hello from Data display');
+      React.useEffect(() => {
+        axios.get(baseURL).then((response) => 
+        {
+       
+          let c = response.data;
+          let v = [];
+          c.forEach(element =>
+             {
+               console.log ("now traversing with array ID " +element.title);
+               v.push (element)
+               console.log (v);
+             });  
+             console.log (v);      
+    
+          setPost({...post , listv : [...v] });
+          // setUser({...user, [e.target.name]: e.target.value });
+          console.log( "Now logging state values");
+          console.log( post.listv);
+    
+          console.log( "Finished logging state values");
+          //console.log( post.title);
+        });
+      }, []);
 
   const handleChange = (e) =>
   { 
@@ -35,7 +63,7 @@ const Basicdropd = () =>
            </label>   
            <select  onChange = {handleChange}>
                 {
-                  fruits.map  ((country) => (<option value = {country.value}>{country.label}</option> )) 
+                  post.listv.map  ((country) => (<option value = {country}>{country}</option> )) 
                 }            
             </select>  
           </div>   
