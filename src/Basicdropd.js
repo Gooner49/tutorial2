@@ -44,7 +44,7 @@ const Basicdropd = () =>
   const handleChange = (e) =>
   { 
     //var incr = e.target.value;
-    console.log('Hello number ' +e.target.value );
+    console.log('Hello Inumber ' +e.target.value );
     //console.log ('Handling changed user' );
     setUser({...user, [e.target.name]: e.target.value });
     console.log('Changed number ' +e.target.value );
