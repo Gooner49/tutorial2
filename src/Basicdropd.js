@@ -41,23 +41,72 @@ const Basicdropd = () =>
         });
       }, []);
 
-  const handleChange = (e,f) =>
+  const handleChange = (e) =>
   { 
     //var incr = e.target.value;
     console.log('Hello Inumber ' +e.target.value );
     //console.log ('Handling changed user' );
     setUser({...user, [e.target.name]: e.target.value });
     console.log('Changed number ' +e.target.value );
+    React.useEffect(() => {
+        axios.get(baseURL).then((response) => 
+        {
+       
+          let c = response.data;
+          let v = [];
+          c.forEach(element =>
+             {
+               console.log ("now traversing with array ID " +element.description);
+               v.push (element)
+               console.log (v);
+             });  
+             console.log (v);      
+    
+          setPost({...post , listv : [...v] });
+          // setUser({...user, [e.target.name]: e.target.value });
+          console.log( "Now logging state values");
+          console.log( post.listv);
+    
+          console.log( "Finished logging state values");
+          //console.log( post.title);
+        });
+      }, []);
+
   }
 
-  const hange = (e) =>
+  const hange = (e,f) =>
   { 
     //var incr = e.target.value;
     console.log('Hello Inumber '  );
-    const [user, setUser] = useState({country: 'kras' });
+    const [post, setPost] = useState({listv: [] });
     //console.log ('Handling changed user' );
+    //useState({listv : [] });
     //setUser({...user, [e.target.name]: e.target.value });
     //console.log('Changed number ' +e.target.value );
+    React.useEffect(() => {
+      axios.get(e).then((response) => 
+      {
+     
+        let c = response.data;
+        let v = [];
+        c.forEach(element =>
+           {
+             console.log ("now traversing with array ID " +element.description);
+             v.push (element)
+             console.log (v);
+           });  
+           console.log (v);      
+  
+        setPost({...post , listv : [...v] });
+        // setUser({...user, [e.target.name]: e.target.value });
+        console.log( "Now logging state values");
+        console.log( post.listv);
+  
+        console.log( "Finished logging state values");
+        //console.log( post.title);
+      });
+    }, []);
+
   }
   
   return (
