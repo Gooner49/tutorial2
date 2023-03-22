@@ -25,7 +25,7 @@ const Basicdropd = () =>
           let v = [];
           c.forEach(element =>
              {
-               console.log ("now traversing with array ID " +element.title);
+               console.log ("now traversing with array ID " +element.description);
                v.push (element)
                console.log (v);
              });  
@@ -41,13 +41,23 @@ const Basicdropd = () =>
         });
       }, []);
 
-  const handleChange = (e) =>
+  const handleChange = (e,f) =>
   { 
     //var incr = e.target.value;
     console.log('Hello Inumber ' +e.target.value );
     //console.log ('Handling changed user' );
     setUser({...user, [e.target.name]: e.target.value });
     console.log('Changed number ' +e.target.value );
+  }
+
+  const hange = (e) =>
+  { 
+    //var incr = e.target.value;
+    console.log('Hello Inumber '  );
+    const [user, setUser] = useState({country: 'kras' });
+    //console.log ('Handling changed user' );
+    //setUser({...user, [e.target.name]: e.target.value });
+    //console.log('Changed number ' +e.target.value );
   }
   
   return (
@@ -61,11 +71,22 @@ const Basicdropd = () =>
              <br />
           
            </label>   
-           <select  onChange = {handleChange}>
-                {
-                  post.listv.map  ((country) => (<option value = {country}>{country}</option> )) 
-                }            
-            </select>  
+               <div>
+                <select  onChange = {handleChange}>
+                    {
+                       post.listv.map  ((country) => (<option value = {country}>{country}</option> )) 
+                    }            
+                </select>  
+
+               </div>
+               <div>
+                    <select onChange = {handlesublistChange}>
+                      {
+
+                      }
+                    </select>
+               </div>
+           
           </div>   
      </div>
   );
