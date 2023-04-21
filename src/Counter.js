@@ -1,7 +1,8 @@
 import React , {Component} from 'react'
 import './Counter.css'
 import SubCounter from './SubCounter';
-class Counter extends Component {
+class Counter extends Component
+{
   constructor (props)
   { 
     super(props);
@@ -10,10 +11,7 @@ class Counter extends Component {
       counter : 7
 
     }
-    //this.cIncrement = this.cIncrement.bind(this);
-
   }
-
   render  () 
   {
     const originalArr = [
@@ -57,9 +55,8 @@ class Counter extends Component {
   }
   cIncrement = (val) => 
   {
-     console.log('Hello Sir from Counter.cIncrement');
+     
      console.log('Trying to increase ' + this.state.counter + ' by a value of ' +val );
-     //this.state.counter ++ ;
      this.setState(
      {
        counter : this.state.counter + val
