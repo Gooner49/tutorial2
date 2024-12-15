@@ -64,6 +64,7 @@ class TodoApp extends Component
           <Route path= '/About'  element = {<Basicdropd/>} />
           <Route path= '/Login' element = {<Login  />}   />
           <Route path= '/viewAll'  element = {<DataDisplay  />}   />
+          <Route path= '/Error'  element = {<DataDisplay  />}   />
          </Routes>
         </main> 
     </div>
@@ -72,7 +73,7 @@ class TodoApp extends Component
   }
   pushtoWelcome = () => 
   {
-     console.log('Hello Sir from pushtoWelcome component');
+     console.log('Hello from push to Welcome component');
      //console.log('Trying to increase ' + this.state.counter + ' by a value of ' +val );
      //this.state.counter ++ ;
      
