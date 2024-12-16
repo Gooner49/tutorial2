@@ -37,16 +37,15 @@ const DataDisplay = () =>
         //console.log( post.title);
       });   */}
 
-      axios.get(dataURL).then((response) => {
+      axios.get(dataURL).then((response) =>
+      {
         let d = response.data.title;
         setData(d);
         // setUser({...user, [e.target.name]: e.target.value });
         console.log( "Now logging data values");
         console.log( response.data);
         console.log( d);
-
         console.log( "Finished logging data values");
-        
       }
     
     
@@ -73,7 +72,5 @@ const DataDisplay = () =>
         </div>
     );
    // console.log('Hello from Data display');
-    
-  }
-  
+}
 export default DataDisplay;
